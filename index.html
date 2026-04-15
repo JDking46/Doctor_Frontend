@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Life Savers</title>
+    <link rel="stylesheet" href="css/login.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-in-a-modern-laboratory-40656-large.mp4"
+                type="video/mp4">
+        </video>
+    </div>
+    <main class="login-container">
+        <div class="login-card" data-aos="zoom-in">
+            <h1 class="login-title">Welcome Back</h1>
+
+            <form class="login-form" id="loginForm" action="./pages/doctor-home.html">
+                <div class="form-group">
+                    <label>Login As</label>
+                    <select id="role" class="form-control" required
+                        style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 1rem;">
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="login-btn">Login to Account</button>
+
+                <p class="register-link">Don't have an account? <a href="pages/register.html">Register Here</a></p>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="js/auth.js?v=2.1"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

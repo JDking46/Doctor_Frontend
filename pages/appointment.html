@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Request - Life Savers</title>
+    <link rel="stylesheet" href="../css/index.css?v=1.0">
+    <link rel="stylesheet" href="../css/booking.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="../assets/logo.png" alt="Life Savers Logo" />
+                </li>
+                <li class="navbar">
+                    <ul>
+                        <li><a href="patient_home_page.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                    </ul>
+                </li>
+                <li class="head"><a href="status-tracker.html">Status Tracker</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="booking-container">
+        <div class="booking-card" data-aos="fade-up">
+            <h1 class="booking-title">Request for <span>Appointment</span></h1>
+
+            <div class="patient-info-header">
+                <div class="patient-avatar">
+                    <img src="../assets/care.png" alt="Profile Photo">
+                </div>
+                <div class="info-grid">
+                    <span class="info-label">Name:</span>
+                    <span id="patientName" class="info-value">Patient</span>
+
+                    <span class="info-label">Email:</span>
+                    <span id="patientEmail" class="info-value">...</span>
+
+                    <span class="info-label">Role:</span>
+                    <span id="patientRole" class="info-value">Patient</span>
+                </div>
+            </div>
+
+            <form class="booking-form" action="success.html">
+                <div class="form-group">
+                    <label>Note and Description</label>
+                    <textarea id="problemDescription" placeholder="Add any notes or description..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Medical Documents</label>
+                    <input type="file" id="medicalDoc" title="Upload Reports">
+                </div>
+
+                <div class="form-group">
+                    <label>Treatment End Date</label>
+                    <input type="date" id="finalDate">
+                </div>
+
+                <button type="submit" class="submit-request-btn">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../assets/logo.png" alt="Logo">
+                <p>Providing world-class healthcare with compassion and excellence across the globe.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="patient_home_page.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-info">
+                <h4>Contact Us</h4>
+                <p>📍 123 Healthcare Way, Medical District</p>
+
+                <p>✉️ info@lifesavers.org</p>
+            </div>
+            <div class="footer-column footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Join our community for the latest medical updates.</p>
+                <div class="footer-newsletter-input">
+                    <input type="text" placeholder="Your Email">
+                    <button>Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Life Savers NGO Healthcare. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="../js/appointment.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

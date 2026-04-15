@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Savers - Trusted Healthcare</title>
+    <link rel="stylesheet" href="../css/index.css?v=1.1">
+    <link rel="stylesheet" href="../css/patient_home_page.css?v=1.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="../assets/logo.png" alt="Life Savers Logo" />
+                </li>
+                <li class="navbar">
+                    <ul>
+                        <li><a href="doctor-home.html">Home</a></li>
+                        <li><a href="about-doctor.html">About</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="head"><a href="doctor-inbox.html">Inbox</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>❤ Life <span>savers</span></h1>
+        </section>
+
+        <section class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" id="patientCount">1</span>
+                <span class="stat-label">Happy Patients</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="doctorCount">1</span>
+                <span class="stat-label">Expert Doctors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="successRate">1</span>
+                <span class="stat-label">Success Rate %</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="branchCount">1</span>
+                <span class="stat-label">Hospital Branches</span>
+            </div>
+        </section>
+
+        <!-- Dynamic Card Section -->
+        <section class="slider-wrapper" data-aos="fade-up">
+            <div class="doctors-track">
+                <!-- Original Cards -->
+                <div class="doctor-card">
+                    <img src="../assets/quality.png" alt="Safety and Quality" />
+                    <div>
+                        <h2>Safety First Quality</h2>
+                        <p class="letter">High standard healthcare with dedicated quality control systems.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/care.png" alt="Compassionate Care" />
+                    <div>
+                        <h2>Compassionate Care</h2>
+                        <p class="letter">Dedicated to providing trusted and quality healthcare for every patient.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/consultation.png" alt="24/7 Consultation" />
+                    <div>
+                        <h2>24/7 Consultation</h2>
+                        <p class="letter">Connect anytime, anywhere with our expert Life Saver doctors.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/quality.png" alt="Expert Surgery" />
+                    <div>
+                        <h2>Expert Surgery</h2>
+                        <p class="letter">Advanced surgical procedures with minimally invasive techniques.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/care.png" alt="Pediatric Care" />
+                    <div>
+                        <h2>Pediatric Care</h2>
+                        <p class="letter">Specialized healthcare for children and infants with gentle touch.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/consultation.png" alt="Modern Diagnostics" />
+                    <div>
+                        <h2>Modern Diagnostics</h2>
+                        <p class="letter">State-of-the-art laboratory and imaging services for accurate results.</p>
+                    </div>
+                </div>
+
+                <!-- Duplicate Cards for Infinite Loop -->
+                <div class="doctor-card">
+                    <img src="../assets/quality.png" alt="Safety and Quality" />
+                    <div>
+                        <h2>Safety First Quality</h2>
+                        <p class="letter">High standard healthcare with dedicated quality control systems.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/care.png" alt="Compassionate Care" />
+                    <div>
+                        <h2>Compassionate Care</h2>
+                        <p class="letter">Dedicated to providing trusted and quality healthcare for every patient.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/consultation.png" alt="24/7 Consultation" />
+                    <div>
+                        <h2>24/7 Consultation</h2>
+                        <p class="letter">Connect anytime, anywhere with our expert Life Saver doctors.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/quality.png" alt="Expert Surgery" />
+                    <div>
+                        <h2>Expert Surgery</h2>
+                        <p class="letter">Advanced surgical procedures with minimally invasive techniques.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/care.png" alt="Pediatric Care" />
+                    <div>
+                        <h2>Pediatric Care</h2>
+                        <p class="letter">Specialized healthcare for children and infants with gentle touch.</p>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="../assets/consultation.png" alt="Modern Diagnostics" />
+                    <div>
+                        <h2>Modern Diagnostics</h2>
+                        <p class="letter">State-of-the-art laboratory and imaging services for accurate results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section class="services-section" data-aos="fade-up">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 class="services-title">Our <span>Specialties</span></h2>
+                <div class="services-grid">
+                    <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
+                        <h3>Cardiology</h3>
+                        <p>Advanced heart care and surgical excellence by world-renowned experts.</p>
+                    </div>
+                    <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
+                        <h3>Pediatrics</h3>
+                        <p>Gentle medical care and specialized treatment for our youngest patients.</p>
+                    </div>
+                    <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
+                        <h3>Neurology</h3>
+                        <p>Comprehensive treatment for complex brain and nervous system disorders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose-us" data-aos="fade-up">
+            <h2>Why <span>Choose Us?</span></h2>
+            <p>
+                At Life Savers, we combine cutting-edge technology with a heart for humanity. Our NGO-driven model
+                ensures that
+                every patient receives premium care without compromise, making healthcare accessible to everyone.
+            </p>
+        </section>
+    </main>
+
+    <!-- Detailed Footer -->
+    <footer data-aos="fade-up">
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../assets/logo.png" alt="Logo">
+                <p>Providing world-class healthcare with compassion and excellence across the globe.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="doctor-home.html">Home</a></li>
+                    <li><a href="about-doctor.html">About Us</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-info">
+                <h4>Contact Us</h4>
+                <p>📍 123 Healthcare Way, Medical District</p>
+                <p>📞 +1 (234) 567-890</p>
+                <p>✉️ info@lifesavers.org</p>
+            </div>
+            <div class="footer-column footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Join our community for the latest medical updates.</p>
+                <div class="footer-newsletter-input">
+                    <input type="text" placeholder="Your Email">
+                    <button>Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Life Savers NGO Healthcare. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Specific Page JS -->
+    <script src="../js/doctor-home.js"></script>
+</body>
+
+</html>

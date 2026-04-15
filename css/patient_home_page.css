@@ -1,0 +1,529 @@
+/* Modern NGO Healthcare Design - Life Savers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #faf9f6;
+    --light-beige: #f0ede4;
+    --dark-text: #1a1a1a;
+    --accent-green: #4caf8f;
+    --card-bg: #ffffff;
+    --shadow-subtle: rgba(0, 0, 0, 0.04);
+    --shadow-medium: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--cream);
+    background-image:
+        radial-gradient(at 0% 0%, rgba(76, 175, 143, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(76, 175, 143, 0.03) 0px, transparent 50%);
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Floating Header Design */
+header {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 100px;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+header.scrolled {
+    top: 10px;
+    width: 95%;
+    padding: 0.6rem 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 15px 40px rgba(76, 175, 143, 0.15);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo img:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.head a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--accent-green);
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(76, 175, 143, 0.2);
+}
+
+.head a:hover {
+    background-color: #3d9c7a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 143, 0.4);
+}
+
+/* Main Navigation Bar - Integrated with Header */
+.navbar {
+    background: transparent;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    position: relative;
+}
+
+.navbar li a:hover {
+    color: var(--accent-green);
+    background: rgba(76, 175, 143, 0.1);
+}
+
+.navbar li a::after {
+    display: none;
+}
+
+/* Secondary Hero Layout Adjustment */
+.hero-section {
+    background: transparent;
+    padding: 10rem 2rem 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '❤';
+    position: absolute;
+    top: -20px;
+    right: 10%;
+    font-size: 10rem;
+    color: rgba(76, 175, 143, 0.05);
+    transform: rotate(20deg);
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--dark-text);
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 span {
+    color: var(--accent-green);
+    display: inline-block;
+}
+
+/* Stats Section */
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 280px;
+    padding: 2.5rem 2rem;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: float 6s ease-in-out infinite;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: default;
+}
+
+.stat-item:hover {
+    transform: translateY(-15px) scale(1.05);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 25px 60px rgba(76, 175, 143, 0.15);
+    border-color: rgba(76, 175, 143, 0.3);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent-green);
+    display: block;
+    text-shadow: 0 4px 10px rgba(76, 175, 143, 0.1);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Sliding Cards Animation Container */
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.slider-wrapper::before,
+.slider-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slider-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--cream), transparent);
+}
+
+.slider-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--cream), transparent);
+}
+
+.doctors-track {
+    display: flex;
+    width: calc(320px * 12);
+    animation: scroll 30s linear infinite;
+}
+
+.doctors-track:hover {
+    animation-play-state: paused;
+}
+
+/* Doctor Card - Premium Interactive Design */
+.doctor-card {
+    width: 280px;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    margin: 0 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.6s cubic-bezier(0.2, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 320px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.doctor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-green), #6edba9);
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: 1;
+}
+
+.doctor-card * {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(76, 175, 143, 0.25);
+    border-color: transparent;
+}
+
+.doctor-card:hover::before {
+    opacity: 1;
+}
+
+.doctor-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.doctor-card:hover img {
+    transform: scale(1.2) translateY(-10px);
+    filter: brightness(0) invert(1) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.doctor-card h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.doctor-card:hover h2 {
+    color: white;
+}
+
+.doctor-card .letter {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.doctor-card:hover .letter {
+    color: white;
+    opacity: 1;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-320px * 6));
+    }
+}
+
+/* Home Page Specific Styles */
+.services-section {
+    padding: 8rem 2rem;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.services-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--dark-text);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: all 0.4s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(76, 175, 143, 0.15);
+}
+
+.service-box h3 {
+    color: var(--accent-green);
+    margin-bottom: 1rem;
+}
+
+.service-box p {
+    color: #666;
+}
+
+.why-choose-us {
+    padding: 10rem 2rem;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.why-choose-us p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 2;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+/* Shared Footer Styles */
+footer {
+    background: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 8rem 2rem 4rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4rem;
+}
+
+.footer-column img {
+    height: 50px;
+    margin-bottom: 2rem;
+}
+
+.footer-column p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.footer-column h4 {
+    margin-bottom: 1.5rem;
+    color: var(--dark-text);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-green);
+}
+
+.footer-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.footer-newsletter p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.footer-newsletter-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-newsletter-input input {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    flex: 1;
+    outline: none;
+}
+
+.footer-newsletter-input button {
+    padding: 1rem;
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.footer-newsletter-input button:hover {
+    background: #3d9c7a;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 6rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem 2.5rem;
+    }
+}

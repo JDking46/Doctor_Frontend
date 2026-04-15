@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Life Savers</title>
+    <link rel="stylesheet" href="../css/index.css?v=1.1">
+    <link rel="stylesheet" href="../css/admin.css?v=1.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="admin-header">
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="../assets/logo.png" alt="Life Savers Logo" />
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-top-bar">
+            <h1 class="admin-title">Admin <span>Dashboard</span></h1>
+
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="admin-stats-grid">
+            <div class="stat-card">
+                <span class="stat-label-small">Total Appointments</span>
+                <h3 class="stat-value-large" id="totalAppointments">0</h3>
+                <span class="stat-trend">↑ 12% boost</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label-small">Total Doctors</span>
+                <h3 class="stat-value-large" id="totalDoctors">0</h3>
+                <span class="stat-trend">Approved</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label-small">Total Patients</span>
+                <h3 class="stat-value-large" id="totalPatients">0</h3>
+                <span class="stat-trend">Registered</span>
+            </div>
+
+        </div>
+
+
+
+        <!-- Recent Activity Table (Mockup) -->
+        <div class="admin-table-container">
+            <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">Recent Patient Requests</h2>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Doctor</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    <!-- Dynamic content will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        const API_URL = "https://backend-deployment-1-kn6p.onrender.com";
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const tableBody = document.getElementById("adminTableBody");
+            const totalAppointmentsEl = document.getElementById("totalAppointments");
+            const totalDoctorsEl = document.getElementById("totalDoctors");
+            const totalPatientsEl = document.getElementById("totalPatients");
+
+            if (tableBody) tableBody.innerHTML = "<tr><td colspan='4' style='text-align:center; padding: 2rem;'>Loading dashboard data...</td></tr>";
+
+            try {
+                // Try fetching from the API
+                const response = await fetch(`${API_URL}/api/admins/dashboard/stats`);
+                if (!response.ok) throw new Error("Backend error: " + response.status);
+
+                const data = await response.json();
+
+                // Update stats cards
+                if (totalAppointmentsEl) totalAppointmentsEl.innerText = data.recent_requests.length;
+                if (totalDoctorsEl) totalDoctorsEl.innerText = data.total_doctors;
+                if (totalPatientsEl) totalPatientsEl.innerText = data.total_patients;
+
+                // Update table
+                if (tableBody) {
+                    tableBody.innerHTML = "";
+                    if (data.recent_requests.length === 0) {
+                        tableBody.innerHTML = "<tr><td colspan='4' style='text-align:center; padding: 2rem;'>No patient requests found in the database.</td></tr>";
+                    } else {
+                        data.recent_requests.forEach(req => {
+                            const tr = document.createElement("tr");
+                            const statusClass = `status-${(req.status || 'pending').toLowerCase()}`;
+                            
+                            tr.innerHTML = `
+                                <td class="patient-name">${req.patient_name || 'N/A'}</td>
+                                <td>Dr. ${req.doctor_name || 'N/A'}</td>
+                                <td><span class="status-badge ${statusClass}">${(req.status || 'PENDING').toUpperCase()}</span></td>
+                                <td><button class="view-link" onclick="viewDetails(${req.request_id}, '${req.request_date}', '${req.final_date}')">View Details</button></td>
+                            `;
+                            tableBody.appendChild(tr);
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error("Dashboard Loading Error:", error);
+                if (tableBody) {
+                    tableBody.innerHTML = `<tr><td colspan='4' style='text-align:center; padding: 2rem; color: #c62828;'>
+                        <strong>Error loading dashboard:</strong> ${error.message}<br>
+                        <small>Please ensure the backend server is running and accessible.</small>
+                    </td></tr>`;
+                }
+            }
+        });
+
+        function viewDetails(id, reqDate, finalDate) {
+            const reqD = (reqDate && reqDate !== 'null') ? reqDate : 'N/A';
+            const finD = (finalDate && finalDate !== 'null') ? finalDate : 'Not processed yet';
+            alert(`🔍 Appointment Details\n\nRequest ID: #${id}\nRequested On: ${reqD}\nAction Date: ${finD}`);
+        }
+    </script>
+</body>
+
+</html>

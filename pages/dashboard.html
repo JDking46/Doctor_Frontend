@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Accepted Patients</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Dashboard CSS -->
+    <link rel="stylesheet" href="../css/doctor-dashboard.css?v=1.0">
+    <!-- Specific Page CSS -->
+    <link rel="stylesheet" href="../css/doctor-dashboard-stats.css?v=1.0">
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="../assets/logo.png" alt="Life Savers Logo">
+            <span>Life Savers</span>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="doctor-home.html">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="dashboard.html" class="active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="doctor-inbox.html">
+                    <i class="fas fa-inbox"></i>
+                    <span>Inbox</span>
+                </a>
+            </li>
+
+
+        </ul>
+
+        <div class="logout-container">
+            <a href="../index.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar" data-aos="fade-down">
+            <div class="welcome-msg">
+                <h1>Patient Statistics</h1>
+                <p>Tracking your impact and patient acceptance rate.</p>
+            </div>
+
+            <div class="user-profile">
+                <img src="https://ui-avatars.com/api/?name=Dr.+Smith&background=4caf8f&color=fff" alt="Doctor Profile"
+                    class="user-img">
+            </div>
+        </header>
+
+        <!-- Stats Cards Grid (The 4 requested information cards) -->
+        <section class="stats-grid" data-aos="fade-up" data-aos-delay="100">
+            <!-- Card 1: Total Patients Accepted -->
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 id="totalAccepted">42</h3>
+                    <p>Total Accepted</p>
+                </div>
+                <div class="stat-icon green">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+
+            <!-- Card 2: New Today -->
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 id="newToday">5</h3>
+                    <p>New Today</p>
+                </div>
+                <div class="stat-icon blue">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+            </div>
+
+            <!-- Card 3: Acceptance Rate -->
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 id="acceptanceRate">94%</h3>
+                    <p>Acceptance Rate</p>
+                </div>
+                <div class="stat-icon orange">
+                    <i class="fas fa-percentage"></i>
+                </div>
+            </div>
+
+            <!-- Card 4: Monthly Increase -->
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3 id="monthlyGrowth">12%</h3>
+                    <p>Monthly Growth</p>
+                </div>
+                <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                    <i class="fas fa-chart-up-arrow"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed List of Accepted Patients -->
+        <div class="card-section" data-aos="fade-up" data-aos-delay="200" style="margin-top: 2rem;">
+            <div class="section-header">
+                <h2>Recently Accepted Patients</h2>
+            </div>
+            <div class="appointments-list">
+                <div class="appointment-item">
+                    <div class="patient-info">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" alt="Patient"
+                            class="patient-img">
+                        <div class="patient-details">
+                            <h4>John Doe</h4>
+                            <p>Accepted on Feb 06, 2026</p>
+                        </div>
+                    </div>
+                    <span class="status-badge accepted">ACCEPTED</span>
+                </div>
+
+                <div class="appointment-item">
+                    <div class="patient-info">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Miller&background=random" alt="Patient"
+                            class="patient-img">
+                        <div class="patient-details">
+                            <h4>Sarah Miller</h4>
+                            <p>Accepted on Feb 05, 2026</p>
+                        </div>
+                    </div>
+                    <span class="status-badge accepted">ACCEPTED</span>
+                </div>
+
+                <div class="appointment-item">
+                    <div class="patient-info">
+                        <img src="https://ui-avatars.com/api/?name=Michael+Ross&background=random" alt="Patient"
+                            class="patient-img">
+                        <div class="patient-details">
+                            <h4>Michael Ross</h4>
+                            <p>Accepted on Feb 05, 2026</p>
+                        </div>
+                    </div>
+                    <span class="status-badge accepted">ACCEPTED</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Specific Page JS -->
+    <script type="module" src="../js/doctor-dashboard-stats.js"></script>
+</body>
+
+</html>

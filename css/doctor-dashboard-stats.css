@@ -1,0 +1,11 @@
+/* Specific page overrides for Dashboard Stats */
+.status-badge.accepted {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.sidebar {
+    background: #ffffff;
+    height: 100vh;
+    position: fixed;
+}

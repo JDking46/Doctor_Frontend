@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Inbox - Life Savers</title>
+    <link rel="stylesheet" href="../css/index.css?v=1.0">
+    <link rel="stylesheet" href="../css/doctor.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="../assets/logo.png" alt="Life Savers Logo" />
+                </li>
+                <li class="navbar">
+                    <ul>
+                        <li><a href="doctor-home.html">Home</a></li>
+                        <li><a href="about-doctor.html">About</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="head"><a href="request-inbox.html">Request Inbox</a></li>
+                <li class="head"><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="doctor-container">
+        <h1 class="doctor-hero" data-aos="fade-down" style="font-size: 2.5rem; text-align: left; margin-bottom: 2rem;">
+            Patient <span>Request Inbox</span></h1>
+
+        <div class="inbox-card" data-aos="fade-up">
+            <table class="doctor-table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Patient Name</th>
+                        <th>Patient ID</th>
+                        <th>Problem Description</th>
+                        <th>Request Date</th>
+                        <th>Final Date</th>
+                        <th>Document</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11</td>
+                        <td>Das</td>
+                        <td>9</td>
+                        <td>I need your help for my heart operation</td>
+                        <td>21/01/2026 05:55</td>
+                        <td>N/A</td>
+                        <td>None</td>
+                        <td><span class="status-label status-accepted">ACCEPTED</span></td>
+                        <td><button class="action-btn" disabled>Accepted</button></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Das</td>
+                        <td>9</td>
+                        <td>hi sir I will need help for my mom she is a heart patient</td>
+                        <td>22/01/2026 12:01</td>
+                        <td>N/A</td>
+                        <td>None</td>
+                        <td><span class="status-label status-rejected">REJECTED</span></td>
+                        <td><button class="action-btn" disabled>Rejected</button></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Dharvin</td>
+                        <td>10</td>
+                        <td>I need help for my operation</td>
+                        <td>23/01/2026 12:22</td>
+                        <td>N/A</td>
+                        <td>None</td>
+                        <td><span class="status-label status-accepted">ACCEPTED</span></td>
+                        <td><button class="action-btn" disabled>Accepted</button></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Dharvin</td>
+                        <td>10</td>
+                        <td>Test Problem 1769176859</td>
+                        <td>23/01/2026 12:00</td>
+                        <td>N/A</td>
+                        <td>None</td>
+                        <td><span class="status-label status-accepted">ACCEPTED</span></td>
+                        <td><button class="action-btn" disabled>Accepted</button></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Das</td>
+                        <td>9</td>
+                        <td>I need your help</td>
+                        <td>25/01/2026 05:56</td>
+                        <td>08/03/2026 00:00</td>
+                        <td><a href="#" class="doc-link">View Document</a></td>
+                        <td><span class="status-label status-accepted">ACCEPTED</span></td>
+                        <td><button class="action-btn" disabled>Accepted</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../assets/logo.png" alt="Logo">
+                <p>Providing world-class healthcare with compassion and excellence across the globe.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Doctor Portal</h4>
+                <ul class="footer-links">
+                    <li><a href="doctor-home.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="request-inbox.html">Inbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-info">
+                <h4>Contact Support</h4>
+                <p>📍 Hospital Admin Wing, Room 402</p>
+                <p>✉️ dr.support@lifesavers.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Life Savers NGO Healthcare. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

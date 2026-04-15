@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Account - Life Savers</title>
+
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-medical-professional-working-in-a-modern-laboratory-40656-large.mp4"
+                type="video/mp4">
+        </video>
+    </div>
+    <header>
+    </header>
+
+    <main class="register-container">
+        <div class="register-card" data-aos="zoom-in">
+            <h1 class="register-title">Create a New Account</h1>
+
+            <form class="register-form" id="registerForm">
+                <div class="form-group">
+                    <label>Register As:</label>
+                    <select id="role-select" required>
+                        <option value="" disabled selected>Select Your Role</option>
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Doctor Specific Fields -->
+                <div id="doctor-only-field" class="form-group" style="display: none; flex-direction: column; gap: 15px;">
+                    <div>
+                        <label>Specialization</label>
+                        <input type="text" id="specialization" placeholder="Enter your specialization (e.g. Cardiologist)">
+                    </div>
+                    <div>
+                        <label>Profile Image</label>
+                        <input type="file" id="profile_picture" accept="image/*" title="Upload Doctor Profile Photo">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="Enter a valid email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone_number" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Create a password" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirm_password" placeholder="Re-enter your password" required>
+                </div>
+
+                <button type="submit" class="register-btn">Register Account</button>
+
+                <p class="login-link">Already have an account? <a href="../index.html">Login Here</a></p>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="../js/register.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const roleSelect = document.getElementById('role-select');
+            const doctorField = document.getElementById('doctor-only-field');
+
+            // Dynamic Role Field Logic
+            roleSelect.addEventListener('change', () => {
+                if (roleSelect.value === 'doctor') {
+                    doctorField.style.display = 'flex';
+                } else {
+                    doctorField.style.display = 'none';
+                }
+            });
+
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

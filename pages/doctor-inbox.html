@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation Requests - Life Savers Dashboard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Premium Dashboard CSS -->
+    <link rel="stylesheet" href="../css/doctor-dashboard.css?v=1.0">
+    <!-- Specific Page CSS -->
+    <link rel="stylesheet" href="../css/doctor-inbox.css?v=1.0">
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="../assets/logo.png" alt="Life Savers Logo">
+            <span>Life Savers</span>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="doctor-home.html">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="doctor-inbox.html" class="active">
+                    <i class="fas fa-inbox"></i>
+                    <span>Inbox</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="logout-container">
+            <a href="../index.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-bar" data-aos="fade-down">
+            <div class="welcome-msg">
+                <h1>Overview <span>Requests</span></h1>
+                <p>Manage and respond to patient consultation requests.</p>
+            </div>
+            <div class="user-profile">
+                <img src="https://ui-avatars.com/api/?name=Dr.+Smith&background=4caf8f&color=fff" alt="Doctor"
+                    class="user-img">
+            </div>
+        </header>
+
+        <div class="banner-premium" data-aos="zoom-in" data-aos-delay="100">
+            Consultation Requests History
+        </div>
+
+        <div class="card-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="premium-table-wrapper">
+                <table class="premium-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient Name</th>
+                            <th>Patient ID</th>
+                            <th>Problem</th>
+                            <th>Date</th>
+                            <th>Final Date</th>
+                            <th>Document</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="9" style="text-align: center; padding: 3rem; color: #888;">
+                                <i class="fas fa-spinner fa-spin"
+                                    style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                                Loading requests...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Request Details Modal -->
+        <div id="detailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Patient Request <span>Details</span></h2>
+                <div id="modalDetails" class="details-grid">
+                    <!-- Data will be injected here -->
+                </div>
+                <div class="modal-actions">
+                    <button onclick="closeModal()" class="close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Specific Page JS -->
+    <script type="module" src="../js/doctor-inbox.js"></script>
+</body>
+
+</html>
