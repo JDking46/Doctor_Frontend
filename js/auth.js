@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // Redirect based on role
                     if (data.role === 'doctor') {
-                        window.location.href = 'doctor-home.html';
+                        window.location.href = '../doctor-home.html';
                     } else if (data.role === 'admin') {
-                        window.location.href = 'admin.html';
+                        window.location.href = '../admin.html';
                     } else {
-                        window.location.href = 'patient_home_page.html';
+                        window.location.href = '../patient_home_page.html';
                     }
                 } else {
                     const error = await response.json();
