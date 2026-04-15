@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (response.ok) {
                     alert('Registration Successful! You can now login.');
-                    window.location.href = 'index.html';
+                    window.location.href = '../index.html';
                 } else {
                     const errorMsg = result?.detail || result?.message || 'Registration failed';
                     alert('Error: ' + errorMsg);
