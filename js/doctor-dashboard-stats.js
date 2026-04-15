@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const accepted = requests.filter(r => r.status === 'accepted');
             if (totalAcceptedEl) totalAcceptedEl.innerText = accepted.length;
 
-            // Update list
+            // Update listcd
             if (appointmentsList) {
                 appointmentsList.innerHTML = "";
                 if (requests.length === 0) {
